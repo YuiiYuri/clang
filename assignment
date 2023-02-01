@@ -1,0 +1,201 @@
+#include<stdio.h>
+#include <string.h>
+
+int main(void){
+	
+	int key;
+	do {
+		instruction();
+		printf("enter your choice:\n");
+		scanf("%d",&key);
+		switch(key){
+			case 1:
+			ex1();
+			break;
+			case 2:
+			ex2();
+			break;
+			case 3:
+			ex3();
+			break;
+			case 4:
+			ex4();
+			break;
+			case 5:
+			ex5();
+			break;
+			case 6:
+			ex6();
+			break;
+			case 7:
+			extra();
+			break;
+		}
+	}
+	while(key!=0);
+	return 0;
+}
+
+void instruction(){
+	printf("==========================================\n");
+    printf("Danh sach thao tac:\n");
+    printf("1.Compare 2 numbers:\n");
+    printf("2.Sum of last 3 even numbers in range:\n");
+    printf("3.Display 4 characters following alphabet:\n");
+    printf("4.Sort array 7 numbers:\n");
+	printf("5.Array symmetric or asymmetric:\n");
+	printf("6.Sort list 5 names following alphabet:\n");
+	printf("7.EXTRA QUEST: Display 5 middle characters of the string:\n");
+    printf("0.EXIT\n");
+	printf("==========================================\n");
+}
+
+void ex1(){
+	int a, b;
+	printf("Comparing 2 number:\n");
+	printf("Enter 2 numbers:\n");
+	scanf("%d", &a);
+	scanf("%d", &b);
+	if(a < b){
+		printf("a < b \n");	
+		//printf("%d < %d \n", a, b);	
+	}
+	else {
+		printf("a >= b \n");	
+		//printf("%d >= %d \n", a, b);
+	}
+	printf("END FUNC 1 !!!!\n");
+}
+
+void ex2(){
+	printf("Sum of the last 3 even number in range:\n");
+	int n;
+	printf("Enter n:\n");
+	scanf("%d", &n);
+	printf("%d \n", 3 * n - 6);
+	printf("END FUNC 2  !!!!\n");
+}
+
+void ex3(){
+	char string[4];
+	char temp = 0;
+	printf("Enter 4 characters:\n");
+	scanf("%s", &string[0]);
+	scanf("%s", &string[1]);
+	scanf("%s", &string[2]);
+	scanf("%s", &string[3]);
+	int i, j;
+	for (i = 0; i < 4; i++) {
+      for (j = i+1; j < 4; j++) {
+         if (string[i] > string[j]) {
+            temp = string[i];
+            string[i] = string[j];
+            string[j] = temp;
+         }
+      }
+   }
+   printf("%s\n", string);
+}
+
+void ex4(){
+	int array[7];
+	int temp = 0;
+	printf("Enter the array:\n");
+	for (int n = 0; n < 7; n++){
+		scanf("%d", &array[n]);
+	}
+	for (int n = 0; n < 7; n++){
+		printf("%d ", array[n]);
+	}
+	printf("\n");
+	int i, j;
+	for (i = 0; i < 7; i++) {
+      for (j = i+1; j < 7; j++) {
+         if (array[i] > array[j]){
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+         }
+      }
+   }
+   for (int n = 0; n < 7; n++){
+		printf("%d ", array[n]);
+	}
+	printf("\n");
+}
+
+void ex5(){
+	int n;
+	int s = 1;
+	int array[50];
+	printf("Enter n:\n");
+	scanf("%d", &n);
+	printf("Enter the array:\n");
+	for (int i = 0; i < n; i++){
+		scanf("%d", &array[i]);
+	}
+	for (int i = 0; i < n; i++){
+		printf("%d ", array[i]);
+	}
+	printf("\n");
+	int d;
+	d = n/2;
+	//printf("%d\n", d);
+	for (int i = 0; i < d; i++){
+		if (array[i] != array[n-1]){
+			s = 0;
+		}
+		else 
+		    n--;
+	}
+	printf("%d\n", s);
+}
+
+void ex6(){
+   char s[5][20];
+   char t[20];
+   int i, j;
+   int size = 5;
+ 
+   printf("Enter 5 names:\n");
+   for (i = 0; i < size; i++) {
+      scanf("%s", s[i]);
+   }
+
+   for (i = 1; i < size; i++) {
+      for (j = 1; j < size; j++) {
+         if (strcmp(s[j - 1], s[j]) > 0) {
+            strcpy(t, s[j - 1]);
+            strcpy(s[j - 1], s[j]);
+            strcpy(s[j], t);
+         }
+      }
+   }
+ 
+   printf("List:\n");
+   for (i = 0; i < size; i++) {
+      printf("%s ", s[i]);
+   }
+   printf("\n");
+}
+
+void extra(){
+	char string[25];
+    printf("Enter the string:\n");
+    fgets(string, sizeof(string), stdin);
+    int size = 0;
+    size = strlen(string);
+    while(size % 2 == 1 || size <= 6 || size >=21){
+        printf("String uncorrect form! Again:\n");
+        fgets(string, sizeof(string), stdin);
+        size = strlen(string);
+    }
+    printf("%s", string);
+    int display = size / 2 - 3;
+    for(int i = 0; i < 5; i++){
+        printf("%c", string[display]);
+        display++;
+    }
+    printf("\n");
+}
+
