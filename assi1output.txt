@@ -1,0 +1,10 @@
+126
+5005
+2
+35
+21
+120
+9
+1
+Error input!  Check file please!
+6
