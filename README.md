@@ -1,7 +1,7 @@
 # clang
 Author: Pham_Van_Uy 20194716
 
-Assignment 1:
+Assignment 1:\n
 EX1:  tính tổ hợp chập k của n input trên file và in kết quả trên file output
 assi1.c
 assi1input.txt
