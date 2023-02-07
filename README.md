@@ -1,5 +1,5 @@
 # clang
-author: Pham_Van_Uy
+Author: Pham_Van_Uy 20194716
 
 Assignment 1:
 EX1:  tính tổ hợp chập k của n input trên file và in kết quả trên file output
